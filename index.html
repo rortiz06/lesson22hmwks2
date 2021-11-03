@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Driving Cost</title>
+
+  <style>
+    body {
+      background: linear-gradient(to right, maroon 0%, black 100%);
+      color: white;
+
+    }
+
+    img {
+      width: 450px;
+      height: auto;
+    }
+
+    .tableclass {
+      border: solid white 3px;
+    }
+
+    a:link,
+    a:visited{
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+
+    }
+      
+  </style>
+
+
+
+</head>
+
+<body>
+
+  <table class="tableclass">
+    <tr>
+      <td>
+
+        <h1> Daily Driving Coat</h1>
+        <p>Determine daily driving coat on total miles driven a day, cost per gallons of gas, average miles per gallon,
+          parking fees
+          per day and tolls per days.
+        </p>
+
+
+        <table>
+          <tr>
+            <td>
+            <td id="display"></td>
+            <td>
+
+              <form name="theform">
+
+                <table>
+                  <tr>
+                    <td> Miles Driven:</td>
+                    <td><input name="milesDrivenFM" size="10"><br></td>
+                  </tr>
+
+                  <tr>
+                    <td>Cost Per Gallon</td>
+                    <td><input name="costPerGallonFM" size="10"><br></td>
+                  </tr>
+                  <tr>
+                    <td>Average miles Per Gallon:</td>
+                    <td><input name="averageMilesPerGallonFM" size="10"><br></td>
+                  </tr>
+
+                  <tr>
+                    <td>Parking fees:</td>
+                    <td><input name="parkingFeesFM" size="10"><br></td>
+                  </tr>
+                  <tr>
+                    <td>Tolls:</td>
+                    <td><input name="tollsFM" size="10"><br></td>
+                  </tr>
+                  <tr>
+
+                    <td>Total:</td>
+                    <td>
+                      <h2 id="Finalanswer"></h2>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><input type="button" name="calc" value="Calculate" onclick="calculate();">
+                      <input type="button" name="clear" value="Clear" onclick="clearinfo();">
+                    </td>
+                  </tr>
+                </table>
+
+              </form>
+            </td>
+          </tr>
+        </table>
+
+
+        <script>
+          //delcar the calculate funtion
+
+          function calculate() {
+            //declare the varible
+            var milesDriven; //miles driven per day
+            var costPerGallon; //cost per gallen of gas
+            var averageMilesPerGallon; // average miles per gallon of gas
+            var parkingFees; // parking fee for day
+            var tolls; // tolls per day
+            var total; // total coast
+
+            //get the values from the text field
+            milesDriven = parseInt(document.theform.milesDrivenFM.value);
+            costPerGallon = parseFloat(document.theform.costPerGallonFM.value);
+            averageMilesPerGallon = parseInt(document.theform.averageMilesPerGallonFM.value);
+            parkingFees = parseFloat(document.theform.parkingFeesFM.value);
+            tolls = parseFloat(document.theform.tollsFM.value);
+
+            // calulate and dispaly driving cost
+            total = parseFloat(costPerGallon * milesDriven / averageMilesPerGallon + parkingFees + tolls);
+
+            document.querySelector('h2').innerHTML = "$ " + total.toFixed(2)
+
+          }
+
+          function clearinfo() {
+            document.theform.milesDrivenFM.value = " ";
+            document.theform.costPerGallonFM.value = " ";
+            document.theform.averageMilesPerGallonFM.value = " ";
+            document.theform.parkingFeesFM.value = " ";
+            document.theform.tollsFM.value = " ";
+
+            document.getElementById("Finalanswer").innerHTML = " ";
+
+            document.theform.milesDrivenFM.focus();
+
+          }
+          function getImages() {
+
+            document.theform.milesDrivenFM.focus();
+
+            images = new Array(5)
+
+            display = document.getElementById("display");
+
+            images[0] = " <img src = 'car1.jpg' alt='images of car 1' >";
+            images[1] = " <img src = 'car2.jpg' alt='images of car 2' >";
+            images[2] = " <img src = 'car3.jpg' alt='images of car 3' >";
+            images[3] = " <img src = 'car4.jpg' alt='images of car 4'>";
+            images[4] = " <img src = 'car5.jpg' alt='images of car 5' >";
+
+
+
+            i = Math.floor(Math.random() * images.length)
+
+            display.innerHTML = images[i];
+
+
+          }
+
+          getImages();
+
+        </script>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+<p></p>
+
+<a href="http://csnet.southtexascollege.edu/localuser/rortiz84/">Go Back to HomePage</a><br>
+  <p style="color: green;"> Roy Ortiz</p><br>
+
+
+</html>
